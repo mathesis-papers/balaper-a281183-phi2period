@@ -5,13 +5,15 @@
 For Peter Bala's conjecture in the comment of 16 February 2026 in OEIS A281183, revision 60 of 6 November 2026, we give explicit onsets and an alternative lifting proof of Lien-Hung Su's period theorem of 31 October 2026, Theorem 3.2 and Corollary 3.3 of Quadratic Derivations and Uniform Modular Periods for Six Inverse-Function Sequences, DOI 10.5281/zenodo.23835577. If a_n=(2n)![x^(2n)]C(x)^2, where C=cosh(integral_0^x C(t)^3 dt), then a_n is integral and has an eventual period dividing phi(m)^2 for every positive modulus m. For m>=3, phi(m)^2/2 is a period after N(m)=max(v_2(m), max_{odd p|m} ceil(v_p(m)/2)). A binomial operator lift proves this for every integral formal-series observable of S'=(1+S^2)^2. The note proves companion and interleaving consequences and gives dimension-bounded certificates for seven residue periods and the mod-12 identity, crediting Su's prior proofs. Written proofs, finite coefficient comparisons and formal declaration coverage are distinguished.
 
 - PDF: [frozen public file](paper.pdf)
+- DOI: [https://doi.org/10.5281/zenodo.24411953](https://doi.org/10.5281/zenodo.24411953)
+- Concept DOI: [https://doi.org/10.5281/zenodo.24411952](https://doi.org/10.5281/zenodo.24411952)
 - License: CC-BY-4.0
 - Version: 2
 - Mathesis record: [balaper-a281183-phi2period](https://mathesis-omega-research.apps.chrono-ai.fun/papers/balaper-a281183-phi2period?version=2)
 
 ## How to cite
 
-Haobo Ma, Wenlin Zhang (2026). Explicit onsets and residue certificates for Bala's totient-square period problem after Su. Mathesis, version 2. https://mathesis-omega-research.apps.chrono-ai.fun/papers/balaper-a281183-phi2period?version=2
+Haobo Ma, Wenlin Zhang (2026). Explicit onsets and residue certificates for Bala's totient-square period problem after Su. Mathesis, version 2. https://doi.org/10.5281/zenodo.24411953
 
 ## Statement progress
 
