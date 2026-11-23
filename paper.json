@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 95497,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "9d4aa8402c27c48a609235b4efe37f2d2f24236c5dec99b984896cd710181591",
+      "sha256": "9d4aa8402c27c48a609235b4efe37f2d2f24236c5dec99b984896cd710181591"
+    },
+    "source": {
+      "bytes": 111468,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "5b9addd7a41bc20056b26ea920b3bed688fa7d1248eabd895a10ea20d6bef9be",
+      "sha256": "5b9addd7a41bc20056b26ea920b3bed688fa7d1248eabd895a10ea20d6bef9be"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "For Peter Bala's conjecture in the comment of 16 February 2026 in OEIS A281183, revision 60 of 6 November 2026, we give explicit onsets and an alternative lifting proof of Lien-Hung Su's period theorem of 31 October 2026, Theorem 3.2 and Corollary 3.3 of Quadratic Derivations and Uniform Modular Periods for Six Inverse-Function Sequences, DOI 10.5281/zenodo.23835577. If a_n=(2n)![x^(2n)]C(x)^2, where C=cosh(integral_0^x C(t)^3 dt), then a_n is integral and has an eventual period dividing phi(m)^2 for every positive modulus m. For m>=3, phi(m)^2/2 is a period after N(m)=max(v_2(m), max_{odd p|m} ceil(v_p(m)/2)). A binomial operator lift proves this for every integral formal-series observable of S'=(1+S^2)^2. The note proves companion and interleaving consequences and gives dimension-bounded certificates for seven residue periods and the mod-12 identity, crediting Su's prior proofs. Written proofs, finite coefficient comparisons and formal declaration coverage are distinguished.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "92de86888730265f84e24d28bdb67546c543a966",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/92de86888730265f84e24d28bdb67546c543a966/D5/S1/Recurrence/Periodic/BalaA281183TotientSquarePeriod.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 95497,
+      "sha256": "9d4aa8402c27c48a609235b4efe37f2d2f24236c5dec99b984896cd710181591",
+      "url": "/api/v1/collected-papers/balaper-a281183-phi2period/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-23T07:27:52.612684224Z",
+    "record": "balaper-a281183-phi2period",
+    "repository_name": "balaper-a281183-phi2period",
+    "source": {
+      "bytes": 111468,
+      "sha256": "5b9addd7a41bc20056b26ea920b3bed688fa7d1248eabd895a10ea20d6bef9be",
+      "url": "/api/v1/collected-papers/balaper-a281183-phi2period/files/source?version=2"
+    },
+    "title": "Explicit onsets and residue certificates for Bala's totient-square period problem after Su",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-23T07:27:52.612684224Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "balaper-a281183-phi2period"
+  }
+}

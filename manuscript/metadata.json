@@ -1,0 +1,15 @@
+{
+  "id": "balaper-a281183-phi2period",
+  "revision": 2,
+  "problem_ids": ["balaper-a281183-phi2period", "balaper-phi2period", "balaper-a281181-phi2period", "balaper-a281184-phi2period", "balaper-a281440-phi2period"],
+  "topic": "Peter Bala's totient-square period problem, explicit onsets, companion coefficients and residue certificates",
+  "title": "Explicit onsets and residue certificates for Bala's totient-square period problem after Su",
+  "creators": [
+    {"name": "Ma, Haobo", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Zhang, Wenlin", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "For Peter Bala's conjecture in the comment of 16 February 2026 in OEIS A281183, revision 60 of 6 November 2026, we give explicit onsets and an alternative lifting proof of Lien-Hung Su's period theorem of 31 October 2026, Theorem 3.2 and Corollary 3.3 of Quadratic Derivations and Uniform Modular Periods for Six Inverse-Function Sequences, DOI 10.5281/zenodo.23835577. If a_n=(2n)![x^(2n)]C(x)^2, where C=cosh(integral_0^x C(t)^3 dt), then a_n is integral and has an eventual period dividing phi(m)^2 for every positive modulus m. For m>=3, phi(m)^2/2 is a period after N(m)=max(v_2(m), max_{odd p|m} ceil(v_p(m)/2)). A binomial operator lift proves this for every integral formal-series observable of S'=(1+S^2)^2. The note proves companion and interleaving consequences and gives dimension-bounded certificates for seven residue periods and the mod-12 identity, crediting Su's prior proofs. Written proofs, finite coefficient comparisons and formal declaration coverage are distinguished.",
+  "summary": "An attributed alternative lifting proof with explicit onsets, integral formal-series observables, seven exact residue-period certificates and an interleaving consequence for A281182, whose all-modulus extension fails at modulus 2 and was not asserted in its source.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/92de86888730265f84e24d28bdb67546c543a966/D5/S1/Recurrence/Periodic/BalaA281183TotientSquarePeriod.lean"
+}

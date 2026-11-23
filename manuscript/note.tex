@@ -1,0 +1,459 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\DeclareMathOperator{\ev}{ev}
+\title{Explicit onsets and residue certificates for Bala's\unskip\break
+totient-square period problem after Su}
+\author{Haobo Ma\\
+\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\
+\small National University of Singapore\\
+\small ChronoAI Pte Ltd, Singapore}
+\date{14 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For Peter Bala's conjecture in the comment of 16 February 2026 in
+OEIS A281183, revision 60 of 6 November 2026, we give explicit onsets
+and an alternative lifting proof of Lien-Hung Su's period theorem
+of 31 October 2026 \cite[Theorem 3.2 and Corollary 3.3]{su}.
+If $a_n=(2n)![x^{2n}]C(x)^2$, where
+$C=\cosh(\int_0^x C(t)^3\,dt)$, then $a_n$ is integral and,
+modulo each positive integer $m$, has an eventual period dividing
+$\varphi(m)^2$. For $m\ge3$, the shift $\varphi(m)^2/2$ already
+works. A commuting-operator lifting lemma gives an explicit sufficient
+onset and extends to integral formal-series observables. We prove
+the immediate companion and interleaving consequences, and give
+finite-dimensional certificates for seven residue periods already
+established by Su. These distinguish all-index identities from
+finite-range coefficient comparisons.
+\end{abstract}
+
+\section{The sequence and the result}
+Bala asks whether the integer sequence with exponential generating function
+$C(x)^2$ has an eventual period dividing $\varphi(m)^2$ modulo every
+$m\ge1$ \cite{oeis183}. Su proves this assertion, a half-size period
+bound, and companion assertions for five inverse-function sequences
+\cite[Section 3]{su}. The argument below isolates the polynomial
+observable $1+s^2$, and replaces the idempotent lifting in that proof
+by a binomial identity. Its explicit sufficient onset is
+$\max(v_2(m),\max_{p\mid m,\ p\text{ odd}}\lceil v_p(m)/2\rceil)$.
+
+All series are formal over $\mathbb Q$, and every integral has constant
+term zero. Let $S$ be the unique solution of
+\[
+ S'=(1+S^2)^2,\qquad S(0)=0,
+ \qquad C=(1+S^2)^{1/2},\quad C(0)=1.
+\]
+Existence and uniqueness follow recursively by comparing coefficients.
+Then $C'=SC^3$. If $H'=C^3$ and $H(0)=0$, the series $C+S$ and
+$C-S$ satisfy $Y'=H'Y$ and $Y'=-H'Y$, respectively, with constant
+term $1$. Thus $C\pm S=\exp(\pm H)$, so $C=\cosh H$.
+Conversely the displayed defining equation for $C$ gives
+$S=\sinh H$, $S'=C^4$ and $C^2-S^2=1$. This fixes the source
+convention and proves that the definitions agree.
+
+Write
+\[
+ u(s)=1+s^2,\qquad D=u(s)^2\frac{d}{ds},\qquad
+ b_f(n)=(D^{2n}f)(0)\quad(f\in\mathbb Z[s]).
+\]
+The chain rule, iterated, gives
+\begin{equation}\label{flow}
+ (D^j f)(0)=j![x^j]f(S(x)),\qquad
+ a_n=b_u(n).
+\end{equation}
+In particular all these numbers are integers. This derivative realization
+is also the formal version of Bala's inverse-function calculation
+\cite[Corollary 1]{bala}.
+
+For $m>1$ put
+\[
+ N(m)=\max\left(\{v_2(m)\}\cup
+ \left\{\left\lceil\frac{v_p(m)}2\right\rceil:
+             p\mid m,\ p\text{ odd}\right\}\right).
+\]
+Set $N(1)=0$, and set $L(m)=1$ for $m=1,2$ and
+$L(m)=\varphi(m)^2/2$ for $m\ge3$.
+
+\begin{theorem}\label{main}
+For every $f\in\mathbb Z[s]$, every $m\ge1$, and every $n\ge N(m)$,
+\[
+ b_f(n+L(m))\equiv b_f(n)\pmod m.
+\]
+Moreover $2^n\mid b_f(n)$ for every $n\ge0$.
+Consequently Bala's prescribed shift $\varphi(m)^2$ is an eventual
+period for $a_n$ at every positive modulus.
+\end{theorem}
+
+\section{A complete lifting argument}
+\begin{lemma}\label{lift}
+Let $A$ be an endomorphism of a finite free
+$\mathbb Z/p^r\mathbb Z$-module, where $p$ is prime and $r\ge1$.
+If $A(A^T-I)$ is divisible by $p$ for a positive integer $T$, then
+\[
+ A^r\bigl(A^{Tp^{r-1}}-I\bigr)=0.
+\]
+\end{lemma}
+\begin{proof}
+Put $Y=A^T-I$ and $M=p^{r-1}$. For $1\le j\le M$, the identity
+$j\binom Mj=M\binom{M-1}{j-1}$ gives
+$v_p\binom Mj\ge r-1-v_p(j)$. For $j<r$ this is at least $r-j$,
+since $v_p(j)\le j-1$. Also $A^rY^j$ is divisible by $p^j$
+when $j\le r$, because it equals $A^{r-j}(AY)^j$.
+When $j\ge r$, it equals $(AY)^rY^{j-r}$ and is divisible by $p^r$.
+Expand $A^r((I+Y)^M-I)$ by the binomial theorem. Every term
+is divisible by $p^r$, proving the assertion, including $r=1$.
+\end{proof}
+
+Fix an odd prime $p$, $r\ge1$, and $Q=p^r$.
+Work on the free module
+\[
+ R=(\mathbb Z/p^r\mathbb Z)[s]/(s^Q).
+\]
+The operator $D$ descends to $R$, because $D(s^Q)=Q s^{Q-1}u^2=0$.
+On its reduction $\overline R=\mathbb F_p[s]/(s^Q)$, $u^2$ is a unit.
+The iterated Leibniz formula shows that $D^p$ is a derivation: the
+intermediate binomial coefficients vanish in characteristic $p$.
+A derivation on $\overline R$ is determined by its value on $s$;
+hence $D^p=\lambda D$ for some $\lambda\in\overline R$.
+Commuting $D$ with $D^p$ gives $D(\lambda)=0$, by applying the
+commutator to $s$ and cancelling the unit $D(s)$.
+Thus $\lambda\in\mathbb F_p[s^p]$.
+
+Here is the scalar calculation, as in Su's characteristic-$p$ argument
+\cite[Theorem 2.2]{su}. Expand
+$u^{-2}=\sum_{j\ge0}b_js^j$ and put
+$y=\sum_{j=0}^{p-2}b_js^{j+1}/(j+1)$.
+Modulo $s^p$, $Dy=1-b_{p-1}u^2s^{p-1}$.
+The ideal $(s^p)$ is $D$-stable. Evaluation after $p-1$ further
+applications of $D$ therefore yields
+\[
+ \lambda(0)=(D^py)(0)=-b_{p-1}(p-1)!=b_{p-1}.
+\]
+Indeed $Dy(0)=1$, and a series of order $p-1$ acquires constant
+term $(p-1)!$ times its leading coefficient after $p-1$
+applications of $D$; the last equality is Wilson's theorem.
+For $h=(p-1)/2$ the scalar is
+\begin{equation}\label{gamma}
+ \gamma_p=b_{p-1}=(-1)^h(h+1)=\frac{(-1)^h}{2}\ne0
+ \quad\text{in }\mathbb F_p.
+\end{equation}
+Since $D\lambda=0$, induction gives
+$D^{1+(p-1)t}=\lambda^tD$ for every $t\ge0$.
+Frobenius and $s^Q=0$ give $\lambda^{p^{r-1}}=\gamma_p$.
+Taking $t=(p-1)p^{r-1}$ and using
+$\gamma_p^{p-1}=1$, we obtain
+\[
+ D^{T+1}=D\quad\text{on }\overline R,\qquad
+ T=(p-1)^2p^{r-1}.
+\]
+Apply Lemma~\ref{lift} to the matrix of $D$ on $R$. It follows that
+\begin{equation}\label{oddperiod}
+ D^{j+\varphi(p^r)^2}=D^j\quad\text{on }R
+ \quad(j\ge r).
+\end{equation}
+Applying this to the residue class of $f$ and evaluating at $s=0$
+proves the column period $\varphi(p^r)^2/2$ whenever $2n\ge r$.
+These evaluations are exactly those in $\mathbb Z[s]$: reduction to $R$
+intertwines $D$, and evaluation at zero respects reduction of coefficients.
+
+At $p=2$ the argument is shorter. For every integral polynomial $f$,
+\[
+ D^2f=u^2(u^2)'f'+u^4f''\in2\mathbb Z[s],
+\]
+because $(u^2)'=4su$ and every coefficient of $f''$ is even.
+Thus $D^2=2B$ for an endomorphism $B$ of $\mathbb Z[s]$, and
+$D^{2n}=2^nB^n$. In particular $b_f(n)=0\pmod{2^r}$ for $n\ge r$.
+For an odd prime-power factor $p^r\mid m$,
+$\varphi(p^r)\mid\varphi(m)$. Therefore its column period divides
+$L(m)$ when $m\ge3$. The $2$-primary component is zero after
+the stated onset. The Chinese remainder theorem now proves
+Theorem~\ref{main}; $m=1,2$ follow directly. A least eventual period
+divides any eventual period: on the periodic tail this is the usual
+division-with-remainder argument for periods. This also gives Bala's
+wording ``period dividing $\varphi(m)^2$.''
+
+\section{Consequences and residue certificates}
+\begin{corollary}[Integral series and even powers]\label{series}
+Theorem~\ref{main} holds for every $f\in\mathbb Z[[s]]$.
+In particular it holds for the factorial-scaled even coefficients
+of $C^{2k}$ for every integer $k$, including negative $k$.
+\end{corollary}
+\begin{proof}
+For each $j$, evaluation of $D^jf$ depends only on the coefficients
+of $f$ through degree $j$. Reduction modulo $(p^r,s^{p^r})$
+still intertwines $D$, since the ideal is stable. The odd-prime
+proof is therefore unchanged. The identity $D^2=2B$ also holds
+on $\mathbb Z[[s]]$. Finally $C^{2k}=(1+S^2)^k$, and
+$(1+s^2)^k\in\mathbb Z[[s]]$ for every integer $k$.
+\end{proof}
+
+\paragraph{The tentative nested-derivative identity.}
+Bala's formula of 22 December 2025 in A281183 defines
+$g_0=1$ and $g_{j+1}=u(ug_j)'$. In $\mathbb Q[[s]]$,
+the operator $L:f\mapsto u(uf)'$ is $u^{-1}Du$.
+Hence $g_j=u^{-1}D^ju$ and $g_{2n}(0)=a_n$ by \eqref{flow}.
+This proves the all-index identity, also proved by Su
+\cite[Proposition 3.5]{su}.
+
+\begin{corollary}[The other two source derivative formulas]\label{nested}
+The A281183 formulas attributed to Bala on 22 December 2025 and
+9 January 2026 also hold at every index: if
+$f_0=1$, $f_{j+1}=(\sec^2(z)f_j)'$, and
+$h_0=(1-z^2)^{-1/2}$,
+$h_{j+1}=((1-z^2)^{-1/2}h_j)'$, then
+$f_{2n}(0)=h_{2n}(0)=a_n$ for all $n\ge0$.
+\end{corollary}
+\begin{proof}
+For a formal unit $q$ with $q(0)=1$, write $E=q\,d/dz$.
+Then $d/dz\circ q=q^{-1}Eq$. If $T'=q(T)$, $T(0)=0$,
+this gives $((d/dz\circ q)^jv)(0)=j![x^j](q(T)v(T))$.
+For $q=\sec^2z$, $S=\tan T$ satisfies $S'=(1+S^2)^2$,
+so $q(T)=C^2$ and $v=1$ gives $f_j$.
+For $q=(1-z^2)^{-1/2}$, take $T=S/C$.
+The equations in Section 1 give $T'=C=q(T)$, hence $q(T)^2=C^2$;
+now $v=q$ gives $h_j$. This is the inverse-flow method in
+Bala's note \cite[Corollary 1]{bala}, applied to the two source formulas.
+\end{proof}
+
+\paragraph{The modulus-$11$ example and its columns.}
+Taking $r=1$ above gives, for $n\ge1$,
+\[
+ b_f(n+(p-1)/2)=\gamma_pb_f(n)\pmod p.
+\]
+For $p=11$, $\gamma_p=5$ has multiplicative order $5$, so
+$a_{n+25}=a_n$ for $n\ge1$. Since $a_1=2$ and $a_6=10\pmod{11}$,
+the least eventual period is neither $1$ nor $5$, and is therefore $25$.
+Translation by the known period $25$ carries any later failure
+of a proposed divisor period back to this tail, so this is also
+the least eventual period. The five residue columns are geometric progressions of ratio $5$,
+which proves Bala's example; Su gives the same exact period
+\cite[Propositions 3.4 and 3.6]{su}.
+More generally, for an odd squarefree modulus $m$, put
+$H=\operatorname{lcm}_{p\mid m}(p-1)/2$ and choose the unit $c_m$
+with $c_m\equiv\gamma_p^{H/((p-1)/2)}\pmod p$.
+The Chinese remainder theorem gives
+$b_f(n+H)=c_mb_f(n)\pmod m$ for $n\ge1$.
+For nonsquarefree moduli Su's Proposition 3.4 gives a precise
+higher-order row relation; the informal rectangular-layout observation
+does not itself specify one universal assertion.
+
+\begin{corollary}[The companion and the interleaved sequence]\label{companions}
+For A281180, whose offset is $1$, write its terms as $s_n$.
+Since $S'=C^4=u(S)^2$, one has
+$s_n=b_{u^2}(n-1)$ for $n\ge1$.
+Theorem~\ref{main} proves the same periods for $s_n$ with onset
+$N(m)+1$. Su's Corollary 3.3 already includes this conclusion.
+
+Let $t_j=j![x^j](C+S)$, the sequence A281182, and let
+$R(m)=\max_{p\mid m}v_p(m)$ for $m>1$, with $R(1)=0$.
+For $m\ge3$, $t_{j+\varphi(m)^2}\equiv t_j\pmod m$
+for $j\ge2R(m)$. Modulo $2$, its least eventual period is $2$.
+\end{corollary}
+\begin{proof}
+The first assertion is the displayed derivative identity.
+By parity, $t_{2n}=A281181(n)$ and $t_{2n+1}=s_{n+1}$.
+Su's Theorem 3.2 gives shift $L(m)$ for A281181 at $n\ge R(m)$;
+Theorem~\ref{main} gives it for $s_{n+1}$ at $n\ge N(m)\le R(m)$.
+Interleaving doubles the shift. For the last assertion, Manyama's
+recurrence in A281181 is
+\[
+ A(n,k)=k\bigl((k+3)A(n-1,k+6)-(k+2)A(n-1,k+4)\bigr),
+ \quad A(0,k)=1.
+\]
+Induction gives $A(n,k)\equiv1\pmod2$ for odd $k$, whereas
+$s_{n+1}\equiv0\pmod2$ for $n\ge1$ by Theorem~\ref{main}.
+The tail thus alternates $1,0$.
+\end{proof}
+The all-modulus totient-square assertion was not posed for A281182;
+that extension fails at $m=2$, since $\varphi(2)^2=1$.
+
+\begin{corollary}[Source residue examples]\label{certificates}
+The following are the least eventual periods; the stated periods
+already hold from the indicated OEIS index $n_0$.
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+Sequence & Modulus $m$ & Period $P$ & $n_0$ & Dimension $h$\\
+\midrule
+A281180 & 7 & 18 & 1 & 4\\
+A281181 & 10 & 8 & 0 & 5\\
+A281181 & 9 & 3 & 1 & 5\\
+A281181 & 13 & 72 & 0 & 7\\
+A281183 & 11 & 25 & 1 & 6\\
+A281184 & 11 & 25 & 1 & 6\\
+A281440 & 13 & 72 & 0 & 7\\
+\bottomrule
+\end{tabular}
+\end{center}
+Moreover A281181$(n)\equiv1\pmod{12}$ for every $n\ge0$.
+These results, including Curtz's mod-$9$, mod-$10$ and mod-$12$
+observations in A281181, are reproved here with the finite certificates
+below; Su previously proved all of them \cite[Proposition 3.6]{su}.
+The mod-$10$ cycle is $(1,1,3,3,9,9,7,7)$; modulo $9$, the
+prefix $a(0)=1$ is followed by the cycle $(1,4,7)$.
+\end{corollary}
+\begin{proof}
+For $d=2$ or $4$, work with $S'=C^{2d}$, $C'=SC^{2d-1}$
+and $C^2-S^2=1$. Put $z=S^2$, $e\in\{0,1\}$.
+Twice differentiating $C^e f(z)$ gives $C^e B_{d,e}f$, where
+\begin{equation}\label{matrix}
+ \begin{split}
+  g&=ef+2(1+z)f',\\
+  B_{d,e}f&=(1+z)^{2d-2}
+    \bigl((1+(e+2d-1)z)g+2z(1+z)g'\bigr).
+ \end{split}
+\end{equation}
+For modulus $m$, set $h=\lceil m/2\rceil$ and reduce modulo
+$(m,z^h)$. The only degree-lowering coefficient in $B_{d,e}(z^h)$
+is $2h(2h-1)$, divisible by $m$; the quotient is therefore stable.
+For $C^k$, take $e\equiv k\pmod2$, $f_0=(1+z)^{(k-e)/2}$.
+Its column is $[z^0]B_{d,e}^nf_0$ in a free module of rank $h$.
+The triples $(d,k,\mathrm{offset})$ are $(2,4,1)$ for A281180,
+$(2,1,0)$, $(2,2,0)$, $(2,3,0)$ for A281181, A281183, A281184,
+and $(4,1,0)$ for A281440; the column index is the OEIS index
+minus the offset.
+
+For every row of the table, substitution into \eqref{matrix}
+gives $h$ consecutive zero differences at shift $P$, beginning
+at column index $n_0-\mathrm{offset}$. Cayley--Hamilton over
+$\mathbb Z/m\mathbb Z$ propagates those zero differences forever.
+The following nonzero differences exclude each prime-divisor
+reduction $P/q$; each displayed pair is $(a(n_0),a(n_0+P/q))$.
+\begin{center}\small
+\begin{tabular}{lll}
+\toprule
+Sequence, modulus & $q$ & Residue pair\\
+\midrule
+A281180, 7 & $2,3$ & $(1,6),(1,2)$\\
+A281181, 10 & $2$ & $(1,9)$\\
+A281181, 9 & $3$ & $(1,4)$\\
+A281181, 13 & $2,3$ & $(1,12),(1,9)$\\
+A281183, 11 & $5$ & $(2,10)$\\
+A281184, 11 & $5$ & $(3,4)$\\
+A281440, 13 & $2,3$ & $(1,12),(1,9)$\\
+\bottomrule
+\end{tabular}\end{center}
+Any eventual period must have its gcd with $P$ as an eventual period;
+translation by $P$ moves the witnesses arbitrarily far along the tail.
+Thus these exclusions prove minimality.
+For the mod-$12$ assertion, $(d,e,k,m)=(2,1,1,12)$ gives dimension
+$6$ and the seven initial residues $(1,1,1,1,1,1,1)$.
+The six zero first differences propagate by the same argument.
+The script \texttt{verify.py} records every zero-difference list,
+matrix and witness, rather than relying on a long matching prefix.
+\end{proof}
+
+The geometric layouts in Bala's examples follow from the same
+finite-dimensional argument: the row widths and multipliers are
+$(6,2)$ for A281180 modulo $7$, $(6,7)$ for A281181 modulo $13$,
+$(5,5)$ for A281183 and A281184 modulo $11$, and $(6,6)$ for
+A281440 modulo $13$. In each case $h$ initial differences
+$a(n+w)-c\,a(n)$ vanish and hence vanish for the whole stated tail.
+For general prime powers, a geometric row law is replaced by a
+higher-order relation \cite[Proposition 3.4]{su}; Bala's informal
+layout sentence specifies no unique all-modulus assertion.
+
+\section{Coverage of the posing entries}
+
+\begin{center}
+\small
+\begin{tabular}{p{.28\linewidth}p{.62\linewidth}}
+\toprule
+Source item & Coverage \\
+\midrule
+A281183, Bala, 16 Feb 2026 comment & Reproved; prior proof Su (2026), Theorem 3.2 and Corollary 3.3. Theorem~\ref{main} supplies an explicit onset. \\
+A281183, Bala, 22 Dec 2025 tentative $g$ formula & Reproved by conjugation; prior proof Su (2026), Proposition 3.5. The asserted $f$ and $h$ formulas of 22 Dec 2025 and 9 Jan 2026 are proved in Corollary~\ref{nested}, using Bala's inverse-flow method. \\
+A281183, Bala, 16 Feb 2026 example & Least period $25$ and width-$5$ ratio-$5$ rows reproved; prior proof Su (2026), Propositions 3.4 and 3.6. \\
+A281180, Bala, 18 Feb 2026 comment/example & Period theorem and least period $18$ mod $7$ reproved, with width-$6$ ratio-$2$ rows; prior proof Su (2026), Corollary 3.3 and Proposition 3.6. \\
+A281181 and A281184, Bala, 16 Feb 2026 & Full-modulus conjectures: prior proof cited, Su (2026), Corollary 3.3. Their examples (least periods $72$ mod $13$ and $25$ mod $11$) reproved in Corollary~\ref{certificates}. \\
+A281181, Curtz, 20 Jan 2017 comments & Mod-$10$ eight-cycle, mod-$9$ three-cycle after $n=0$, and constant residue $1$ mod $12$ reproved; prior proof Su (2026), Proposition 3.6. \\
+A281440, Bala, 19 Feb 2026 & Full-modulus conjecture: prior proof cited, Su (2026), Corollary 3.3. Its least period $72$ and geometric rows mod $13$ reproved. \\
+A281182, revision 32, interleaving & Not posed; proved: shift $\varphi(m)^2$ for $m\ge3$. The all-modulus extension is not asserted in the source; fails at $m=2$ (least period $2$). \\
+Bala's general rectangular-layout sentences & No single universal assertion specified. Squarefree geometric rows proved above; higher-order prime-power relation: prior proof cited, Su (2026), Proposition 3.4. \\
+Integral formal-series observables & Not posed; proved in Corollary~\ref{series}, including negative even powers of $C$. \\
+Other inverse-function representations & Existing source definitions/identities, not additional modular conjectures; their alternative representations are not separately proved here. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Formal statements and finite checks}
+The \href{https://github.com/the-omega-institute/trureturing/blob/92de86888730265f84e24d28bdb67546c543a966/D5/S1/Recurrence/Periodic/BalaA281183TotientSquarePeriod.lean}{pinned A281183 Lean source}
+contains the declaration
+\begin{center}\texttt{BalaA281183TotientSquarePeriod.result}.\end{center}
+It proves existence of rational series $H,C$ with $H(0)=0$,
+$H'=C^3$, $C=(\exp H+\exp(-H))/2$, an integer sequence
+$a_n=(2n)![x^{2n}]C^2$, and the eventual shift $\varphi(m)^2$
+for every $m\ge1$.
+The \href{https://github.com/the-omega-institute/trureturing/blob/92de86888730265f84e24d28bdb67546c543a966/D5/S1/Recurrence/Periodic/BalaA281180TotientSquarePeriod.lean}{pinned A281180 Lean source}
+contains \texttt{BalaA281180TotientSquarePeriod.result}.
+It gives the companion formal-series existence, integer coefficients
+$(2n-1)![x^{2n-1}]S$ for $n\ge1$, and totient-square shift for $S$.
+Its positive index $n$ is exactly the OEIS index of $s_n$.
+
+The \href{https://github.com/the-omega-institute/trureturing/blob/92de86888730265f84e24d28bdb67546c543a966/D5/S1/Recurrence/Periodic/BalaA281181TotientSquarePeriod.lean}{pinned A281181 Lean source}
+contains \texttt{BalaA281181TotientSquarePeriod.result} for $C$,
+with the analogous rational-series, integrality and totient-square conclusion.
+The declaration
+\begin{center}\small\texttt{BalaPolynomialSystem.even\_sequence\_period}\end{center}
+gives
+the eventual shift $\varphi(m)^2$ for every nonnegative power of $C$
+in the flows $H'=C^q$ with $q=3$ or $7$.
+The \href{https://github.com/the-omega-institute/trureturing/blob/92de86888730265f84e24d28bdb67546c543a966/D5/S1/Recurrence/Periodic/AutonomousDerivationTotientSquarePeriod.lean}{pinned autonomous-derivation Lean source}
+contains
+\begin{center}\small\texttt{BalaTruncated.prime\_power\_derivative\_period}.\end{center}
+It states that
+for $P\in\mathbb Z[s]$ with $P(0)=1$, $\Delta=P\,d/ds$,
+$f\in\mathbb Z[s]$, every prime $p$, $r\ge1$ and $j\ge p^{2r-1}$,
+\[
+ (\Delta^{j+\varphi(p^r)^2}f)(0)
+ \equiv(\Delta^jf)(0)\pmod{p^r}.
+\]
+These are totient-square formal statements. The half-size shift,
+the onset $N(m)$, the integral-series extension, the conjugation identity
+and the interleaving consequence have written proofs above.
+The small matrices and their finite certificate identities prove
+Corollary~\ref{certificates} through the written Cayley--Hamilton argument.
+
+The accompanying \texttt{verify.py} compares polynomial differentiation
+with Manyama's recurrence from A281183 and checks specified finite
+ranges. Its JSON output records the bounds and counts. These finite
+congruence comparisons concern those ranges; the arbitrary-modulus conclusion
+follows from the lifting proof. Separately, the dimension-bounded matrix
+identities are exact premises of Corollary~\ref{certificates} and imply its
+all-index conclusions. Sharp general onsets and least periods outside
+the listed moduli remain open here.
+
+\begin{thebibliography}{9}
+\bibitem{su} Lien-Hung Su,
+\emph{Quadratic Derivations and Uniform Modular Periods for Six
+Inverse-Function Sequences}, version 1, 31 October 2026,
+\href{https://doi.org/10.5281/zenodo.23835577}{doi:10.5281/zenodo.23835577},
+especially Theorem 3.2, Corollary 3.3 and Propositions 3.4--3.6, pp. 4--6.
+\bibitem{oeis183} OEIS Foundation Inc.,
+\href{https://oeis.org/A281183}{A281183}, revision 60, 6 November 2026.
+Entry by Paul D. Hanna; period conjecture and tentative derivative
+formula by Peter Bala; parameterized recurrence by Seiichi Manyama.
+\bibitem{bala} Peter Bala,
+\emph{The method of Graves for computing inverse functions},
+26 January 2026, Corollary 1, p. 2,
+\url{https://oeis.org/A281181/a281181.pdf}.
+\bibitem{oeisfamily} OEIS Foundation Inc.,
+\href{https://oeis.org/A281180}{A281180} (revision 86),
+\href{https://oeis.org/A281181}{A281181} (revision 103),
+\href{https://oeis.org/A281182}{A281182} (revision 32),
+\href{https://oeis.org/A281184}{A281184} (revision 41), and
+\href{https://oeis.org/A281440}{A281440} (revision 17),
+accessed 14 November 2026. Companion definitions and source questions.
+\end{thebibliography}
+\medskip\noindent
+\small Copyright \copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International (CC BY 4.0)}.
+\end{document}
