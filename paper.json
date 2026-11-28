@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24411952",
     "current_version": 2,
     "doi": "10.5281/zenodo.24411953",
+    "kind": "note",
     "lean_source": {
       "revision": "92de86888730265f84e24d28bdb67546c543a966",
       "url": "https://github.com/the-omega-institute/trureturing/blob/92de86888730265f84e24d28bdb67546c543a966/D5/S1/Recurrence/Periodic/BalaA281183TotientSquarePeriod.lean"
@@ -55,10 +56,12 @@
     "title": "Explicit onsets and residue certificates for Bala's totient-square period problem after Su",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-23T07:27:52.612684224Z",
         "revision": "2",
-        "version": 2
+        "version": 2,
+        "version_label": null
       }
     ],
     "work": "balaper-a281183-phi2period"
